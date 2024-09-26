@@ -1,0 +1,11 @@
+Model Information:
+* title:	Human Male Skull
+* source:	https://sketchfab.com/3d-models/human-male-skull-f1eaaef50e5845c796d6834fd1b702e5
+* author:	Ruslan Gadzhiev (https://sketchfab.com/ruslangadzhiev)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Human Male Skull" (https://sketchfab.com/3d-models/human-male-skull-f1eaaef50e5845c796d6834fd1b702e5) by Ruslan Gadzhiev (https://sketchfab.com/ruslangadzhiev) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
