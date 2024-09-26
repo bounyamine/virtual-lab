@@ -1,0 +1,149 @@
+/* Style général */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+  }
+  
+  /* Animation de fond */
+  body {
+    background: radial-gradient(circle at center, #003366, #001F3F);
+    animation: backgroundMove 10s ease infinite;
+  }
+  
+  @keyframes backgroundMove {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+  
+  /* Style pour le sélecteur d'organe */
+  select {
+    background-color: #ffffff;
+    color: #003366;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px solid #003366;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  select:hover {
+    background-color: #003366;
+    color: #ffffff;
+  }
+  
+  /* Positionnement pour le sélecteur d'organe */
+  select {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    transition: transform 0.3s ease;
+  }
+  
+  select:focus {
+    transform: scale(1.05);
+  }
+  
+  /* Style pour le panneau d'information */
+  .info-panel {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 2;
+    background-color: rgba(0, 51, 102, 0.85);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    max-width: 300px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .info-panel:hover {
+    transform: translateY(-5px);
+    background-color: rgba(0, 51, 102, 0.95);
+  }
+  
+  /* Titre du panneau */
+  .info-panel h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  /* Texte descriptif */
+  .info-panel p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #b0c4de;
+  }
+  
+  /* Spinner de chargement */
+  .spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Animation du spinner */
+  .spinner-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Animation de survol du canvas */
+  canvas {
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  canvas:hover {
+    transform: scale(1.01);
+  }
+  
+  /* Transition pour les boutons du panneau de contrôle (optionnel) */
+  button {
+    background-color: #00509E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #003366;
+  }
+  

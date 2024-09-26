@@ -1,7 +1,9 @@
 import React, { useState, Suspense } from 'react';
+import './App.css';
 import OrganModel from './components/OrganModel';
-import { CanvasContainer } from './components/CanvasContainer';
+import CanvasContainer from './components/CanvasContainer';
 import InfoPanel from './components/InfoPanel';
+import LoadingSpinner from './components/LoadingSpinner';
 
 // Liste des organes et leurs chemins GLTF correspondants
 const organs = {
@@ -14,7 +16,7 @@ const organs = {
 };
 
 function App() {
-  const [selectedOrgan, setSelectedOrgan] = useState("Stomac");
+  const [selectedOrgan, setSelectedOrgan] = useState("Cerveau");
 
   // Changer d'organe
   const handleOrganChange = (event) => {
@@ -25,7 +27,11 @@ function App() {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       {/* Panneau de sélection d'organe */}
       <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 2 }}>
-        <select value={selectedOrgan} onChange={handleOrganChange} style={{ padding: '10px', fontSize: '16px' }}>
+        <select
+          value={selectedOrgan}
+          onChange={handleOrganChange}
+          style={{ padding: '10px', fontSize: '16px' }}
+        >
           {Object.keys(organs).map((organ) => (
             <option key={organ} value={organ}>
               {organ}
@@ -46,15 +52,5 @@ function App() {
     </div>
   );
 }
-
-// Indicateur de chargement
-const LoadingSpinner = () => (
-  <div style={{
-    position: 'absolute', top: '50%', left: '50%',
-    transform: 'translate(-50%, -50%)', color: 'white', fontSize: '24px'
-  }}>
-    Chargement en cours...
-  </div>
-);
 
 export default App;

@@ -1,15 +1,17 @@
 import { useGLTF } from '@react-three/drei';
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 const OrganModel = React.memo(({ organPath }) => {
-  const { scene } = useGLTF(organPath, true);  // Charger dynamiquement le chemin GLTF avec un cache
+  const { scene } = useGLTF(organPath, true);  // Chargement avec mise en cache
+  const [isError] = useState(false);
+
   const handleClick = () => {
-    console.log(`Vous avez cliqué sur l'organe à : ${organPath}`);
+    console.log(`Vous avez cliqué sur l'organe : ${organPath}`);
   };
 
-  useEffect(() => {
-    console.log(`Modèle d'organe chargé : ${organPath}`);
-  }, [organPath]);
+  if (isError) {
+    return <p style={{ color: 'red' }}>Erreur lors du chargement du modèle</p>;
+  }
 
   return <primitive object={scene} scale={3} onClick={handleClick} />;
 }, (prevProps, nextProps) => prevProps.organPath === nextProps.organPath);
