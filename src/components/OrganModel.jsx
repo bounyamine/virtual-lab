@@ -10,7 +10,7 @@ const OrganModel = React.memo(({ organPath }) => {
   };
 
   if (isError) {
-    return <p style={{ color: 'red' }}>Erreur lors du chargement du modèle</p>;
+    return <p className='error'>Erreur lors du chargement du modèle</p>;
   }
 
   return <primitive object={scene} scale={3} onClick={handleClick} />;

@@ -11,10 +11,7 @@ const organDescriptions = {
 
 const InfoPanel = ({ organName }) => {
   return (
-    <div style={{
-      position: 'absolute', bottom: 20, left: 20, padding: '10px 20px',
-      background: 'rgba(255, 255, 255, 0.8)', borderRadius: '8px', zIndex: 2, maxWidth: '300px'
-    }}>
+    <div className='info-panel'>
       <h2>Informations sur : {organName}</h2>
       <p>{organDescriptions[organName]}</p>
     </div>

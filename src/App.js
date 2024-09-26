@@ -26,7 +26,7 @@ function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       {/* Panneau de sélection d'organe */}
-      <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 2 }}>
+      <div>
         <select
           value={selectedOrgan}
           onChange={handleOrganChange}

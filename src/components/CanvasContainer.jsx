@@ -5,15 +5,16 @@ import LoadingSpinner from './LoadingSpinner';
 
 const CanvasContainer = ({ children }) => {
   return (
-    <Canvas style={{ width: '100vw', height: '100vh', background: 'cornflowerblue' }}>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <OrbitControls />
+    <Canvas className='canvas'>
+        <ambientLight intensity={1.2} />
+        <spotLight position={[15, 15, 15]} angle={0.3} penumbra={1} castShadow />
+        <pointLight position={[10, 10, 10]} />
       
       {/* Suspense pour afficher le spinner pendant le chargement */}
       <Suspense fallback={<LoadingSpinner />}>
         {children}
       </Suspense>
+      <OrbitControls />
     </Canvas>
   );
 };

@@ -1,16 +1,27 @@
-/* Style général */
-body, html {
+:root {
+    --primary-color: #003366;
+    --secondary-color: #001F3F;
+    --light-color: #ffffff;
+    --hover-background: rgba(0, 51, 102, 0.95);
+    --info-panel-background: rgba(0, 51, 102, 0.85);
+    --border-color: rgba(255, 255, 255, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  
+  body, html {
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
   }
   
-  /* Animation de fond */
   body {
-    background: radial-gradient(circle at center, #003366, #001F3F);
-    animation: backgroundMove 10s ease infinite;
+    background: radial-gradient(circle at center, var(--primary-color), var(--secondary-color));
+    animation: backgroundMove 15s ease-in-out infinite;
   }
   
   @keyframes backgroundMove {
@@ -27,30 +38,25 @@ body, html {
   
   /* Style pour le sélecteur d'organe */
   select {
-    background-color: #ffffff;
-    color: #003366;
+    background-color: var(--light-color);
+    color: var(--primary-color);
     font-size: 16px;
     padding: 10px 15px;
     border-radius: 10px;
-    border: 2px solid #003366;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    outline: none;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  select:hover {
-    background-color: #003366;
-    color: #ffffff;
-  }
-  
-  /* Positionnement pour le sélecteur d'organe */
-  select {
+    transition: background-color 0.3s, color 0.3s, transform 0.3s ease;
     position: absolute;
     top: 10px;
     left: 10px;
     z-index: 2;
-    transition: transform 0.3s ease;
+  }
+  
+  select:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
   }
   
   select:focus {
@@ -58,23 +64,35 @@ body, html {
   }
   
   /* Style pour le panneau d'information */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   .info-panel {
     position: absolute;
     bottom: 20px;
     left: 20px;
     z-index: 2;
-    background-color: rgba(0, 51, 102, 0.85);
-    color: white;
+    background-color: var(--info-panel-background);
+    color: var(--light-color);
     padding: 15px 20px;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 12px var(--shadow-color);
     max-width: 300px;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s, background-color 0.3s ease;
+    animation: fadeIn 0.5s ease forwards;
   }
   
   .info-panel:hover {
     transform: translateY(-5px);
-    background-color: rgba(0, 51, 102, 0.95);
+    background-color: var(--hover-background);
   }
   
   /* Titre du panneau */
@@ -92,8 +110,8 @@ body, html {
   
   /* Spinner de chargement */
   .spinner {
-    border: 4px solid rgba(255, 255, 255, 0.3);
-    border-top: 4px solid #ffffff;
+    border: 4px solid var(--border-color);
+    border-top: 4px solid var(--light-color);
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -109,7 +127,7 @@ body, html {
     }
   }
   
-  /* Animation du spinner */
+  /* Positionnement du spinner */
   .spinner-container {
     position: absolute;
     top: 50%;
@@ -131,19 +149,22 @@ body, html {
     transform: scale(1.01);
   }
   
-  /* Transition pour les boutons du panneau de contrôle (optionnel) */
+  /* Boutons du panneau de contrôle */
   button {
     background-color: #00509E;
-    color: white;
+    color: var(--light-color);
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
   }
   
   button:hover {
-    background-color: #003366;
+    background-color: var(--primary-color);
   }
   
+  .error {
+    color: red;
+  }
