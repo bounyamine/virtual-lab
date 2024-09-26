@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import OrganModel from './components/OrganModel';
 import { CanvasContainer } from './components/CanvasContainer';
 import InfoPanel from './components/InfoPanel';
@@ -14,7 +14,7 @@ const organs = {
 };
 
 function App() {
-  const [selectedOrgan, setSelectedOrgan] = useState("Cerveau");
+  const [selectedOrgan, setSelectedOrgan] = useState("Stomac");
 
   // Changer d'organe
   const handleOrganChange = (event) => {
@@ -22,10 +22,10 @@ function App() {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       {/* Panneau de sélection d'organe */}
       <div style={{ position: 'absolute', top: 10, left: 10, zIndex: 2 }}>
-        <select value={selectedOrgan} onChange={handleOrganChange}>
+        <select value={selectedOrgan} onChange={handleOrganChange} style={{ padding: '10px', fontSize: '16px' }}>
           {Object.keys(organs).map((organ) => (
             <option key={organ} value={organ}>
               {organ}
@@ -36,7 +36,9 @@ function App() {
 
       {/* Canvas avec le modèle d'organe */}
       <CanvasContainer>
-        <OrganModel organPath={organs[selectedOrgan]} />
+        <Suspense fallback={<LoadingSpinner />}>
+          <OrganModel organPath={organs[selectedOrgan]} />
+        </Suspense>
       </CanvasContainer>
 
       {/* Panneau d'informations */}
@@ -44,5 +46,15 @@ function App() {
     </div>
   );
 }
+
+// Indicateur de chargement
+const LoadingSpinner = () => (
+  <div style={{
+    position: 'absolute', top: '50%', left: '50%',
+    transform: 'translate(-50%, -50%)', color: 'white', fontSize: '24px'
+  }}>
+    Chargement en cours...
+  </div>
+);
 
 export default App;
