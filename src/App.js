@@ -9,9 +9,10 @@ import LoadingSpinner from './components/LoadingSpinner';
 const organs = {
   "Cerveau": './human_brain/scene.gltf',
   "ADN": './human_dna/scene.gltf',
-  "Cœur": './human_heart_realistic_anatomical_model/scene.gltf',
+  "Cœur Anatomique": './human_heart_realistic_anatomical_model/scene.gltf',
+  "Cœur": './realistic_human_heart/scene.gltf',
   "Crâne": './human_male_skull/scene.gltf',
-  "Squelette": './human_skeleton/scene.gltf',
+  "Squelette": './male_human_skeleton_-_zbrush_-_anatomy_study/scene.gltf',
   "Stomac": './realistic_human_stomach/scene.gltf',
 };
 
@@ -24,13 +25,12 @@ function App() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }} className='flex flex-cols h-screen'>
       {/* Panneau de sélection d'organe */}
       <div>
         <select
           value={selectedOrgan}
           onChange={handleOrganChange}
-          style={{ padding: '10px', fontSize: '16px' }}
         >
           {Object.keys(organs).map((organ) => (
             <option key={organ} value={organ}>
